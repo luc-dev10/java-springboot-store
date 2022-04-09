@@ -38,3 +38,4 @@ mvnw
 mvnw.cmd
 
 # properties
+./src/main/resources/application.properties
