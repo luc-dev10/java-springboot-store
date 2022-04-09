@@ -10,6 +10,7 @@ import java.util.Date;
 @Table(name = "product")
 public class Product {
 
+    @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -39,7 +40,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
-    private ProductCategory productCategory;
+    private ProductCategory category;
 
     public int getId() {
         return id;
@@ -106,10 +107,10 @@ public class Product {
     }
 
     public ProductCategory getProductCategory() {
-        return productCategory;
+        return category;
     }
 
-    public void setProductCategory(ProductCategory productCategory) {
-        this.productCategory = productCategory;
+    public void setProductCategory(ProductCategory category) {
+        this.category = category;
     }
 }

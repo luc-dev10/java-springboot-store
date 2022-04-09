@@ -7,6 +7,7 @@ import java.util.Set;
 @Table(name = "category")
 public class ProductCategory {
 
+    @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
