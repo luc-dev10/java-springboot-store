@@ -1,5 +1,6 @@
 package com.lucio.ecommerce.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ public class Product {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name = "name")
     private String name;
@@ -38,15 +39,16 @@ public class Product {
     @Column(name = "is_active")
     private boolean is_active;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private ProductCategory category;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -106,6 +108,7 @@ public class Product {
         this.is_active = is_active;
     }
 
+    @JsonIgnore
     public ProductCategory getProductCategory() {
         return category;
     }

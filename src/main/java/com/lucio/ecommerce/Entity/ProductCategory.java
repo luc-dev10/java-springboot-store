@@ -1,5 +1,7 @@
 package com.lucio.ecommerce.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -10,20 +12,21 @@ public class ProductCategory {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name = "category_name")
     private String categoryName;
 
     // relationship of category = one to many
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
-    private Set<Product> productSet;
+    private Set<Product> products;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -35,11 +38,12 @@ public class ProductCategory {
         this.categoryName = categoryName;
     }
 
+    @JsonIgnore
     public Set<Product> getProductSet() {
-        return productSet;
+        return products;
     }
 
-    public void setProductSet(Set<Product> productSet) {
-        this.productSet = productSet;
+    public void setProductSet(Set<Product> products) {
+        this.products = products;
     }
 }
