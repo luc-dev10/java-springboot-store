@@ -30,14 +30,17 @@ public class Product {
 
     @Column(name = "date_created")
     @CreationTimestamp
-    private Date date_created;
+    private Date dateCreated;
 
     @Column(name = "date_updated")
     @CreationTimestamp
-    private Date date_updated;
+    private Date dateUpdated;
 
     @Column(name = "is_active")
-    private boolean is_active;
+    private boolean isActive;
+
+    @Column(name = "image_url")
+    private String imageUrl;
 
     @JsonIgnore
     @ManyToOne
@@ -84,28 +87,36 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Date getDate_created() {
-        return date_created;
+    public Date getDateCreated() {
+        return dateCreated;
     }
 
-    public void setDate_created(Date date_created) {
-        this.date_created = date_created;
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
-    public Date getDate_updated() {
-        return date_updated;
+    public Date getDateUpdated() {
+        return dateUpdated;
     }
 
-    public void setDate_updated(Date date_updated) {
-        this.date_updated = date_updated;
+    public void setDateUpdated(Date dateUpdated) {
+        this.dateUpdated = dateUpdated;
     }
 
-    public boolean isIs_active() {
-        return is_active;
+    public boolean isActive() {
+        return isActive;
     }
 
-    public void setIs_active(boolean is_active) {
-        this.is_active = is_active;
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @JsonIgnore
